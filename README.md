@@ -1,3 +1,2 @@
 # AForgeTesting
-# module AForge
-# Just experiments
+Just experiments with the AForge
