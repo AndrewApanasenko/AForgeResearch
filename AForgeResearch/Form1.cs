@@ -62,14 +62,13 @@ namespace AForgeResearch
                 else if (captureDevice.IsRunning)
                 {
                     captureDevice.Stop();
-                    changeBtnImg();
                 }
                 else
                 {
                     captureDevice.NewFrame += CaptureDevice_NewFrame;
                     captureDevice.Start();
-                    changeBtnImg();
                 }
+                changeBtnImg();
             }
             catch (Exception ex)
             {
@@ -89,14 +88,9 @@ namespace AForgeResearch
                 if (captureDevice != null && captureDevice.IsRunning)
                 {
                     captureDevice.Stop();
-                    changeBtnImg();
-                    scrCapture.Image = null;
                 }
-                else
-                {
-                    changeBtnImg();
-                    scrCapture.Image = null;
-                }
+                changeBtnImg();
+                scrCapture.Image = null;
             }
             catch (Exception ex)
             {
