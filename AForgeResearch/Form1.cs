@@ -37,14 +37,7 @@ namespace AForgeResearch
 
         private void changeBtnImg()
         {
-            if (captureDevice.IsRunning)
-            {
-                btnPlayPause.Image = Properties.Resources.pause;
-            }
-            else
-            {
-                btnPlayPause.Image = Properties.Resources.play;
-            }
+            btnPlayPause.Image = captureDevice.IsRunning ? Properties.Resources.pause : Properties.Resources.play;
         }
 
         private void btnPlayPause_Click(object sender, EventArgs e)
