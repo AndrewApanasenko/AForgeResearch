@@ -66,7 +66,10 @@ namespace AForgeResearch
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            captureDevice.Stop();
+            if(captureDevice != null && captureDevice.IsRunning)
+            {
+                captureDevice.Stop();
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
