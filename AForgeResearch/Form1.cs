@@ -35,6 +35,18 @@ namespace AForgeResearch
             captureDevice = new VideoCaptureDevice(devices[lstDevice.SelectedIndex].MonikerString);
         }
 
+        private void changeBtnImg()
+        {
+            if (captureDevice.IsRunning)
+            {
+                btnPlayPause.Image = Properties.Resources.pause;
+            }
+            else
+            {
+                btnPlayPause.Image = Properties.Resources.play;
+            }
+        }
+
         private void btnPlayPause_Click(object sender, EventArgs e)
         {
             try
@@ -47,10 +59,16 @@ namespace AForgeResearch
                 {
                     throw new Exception("Device not select!");
                 }
+                else if (captureDevice.IsRunning)
+                {
+                    captureDevice.Stop();
+                    changeBtnImg();
+                }
                 else
                 {
                     captureDevice.NewFrame += CaptureDevice_NewFrame;
                     captureDevice.Start();
+                    changeBtnImg();
                 }
             }
             catch (Exception ex)
@@ -64,16 +82,36 @@ namespace AForgeResearch
             scrCapture.Image = new Bitmap(eventArgs.Frame);
         }
 
+        private void stopCapture()
+        {
+            try
+            {
+                if (captureDevice != null && captureDevice.IsRunning)
+                {
+                    captureDevice.Stop();
+                    changeBtnImg();
+                    scrCapture.Image = null;
+                }
+                else
+                {
+                    changeBtnImg();
+                    scrCapture.Image = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnStop_Click(object sender, EventArgs e)
         {
-            if(captureDevice != null && captureDevice.IsRunning)
-            {
-                captureDevice.Stop();
-            }
+            stopCapture();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            stopCapture();
             Application.Exit();
         }
     }
