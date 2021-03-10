@@ -1,2 +1,2 @@
-# AForgeTesting
+# AForgeResearch
 Just experiments with the AForge
