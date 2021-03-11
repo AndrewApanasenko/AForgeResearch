@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video.DirectShow;
+using AForge.Imaging.Filters;
 
 namespace AForgeResearch
 {
@@ -15,6 +17,9 @@ namespace AForgeResearch
     {
         private FilterInfoCollection devices = null;
         private VideoCaptureDevice captureDevice = null;
+        private bool frameRotateX = false;
+        private bool frameRotateY = false;
+        private bool frameGray = false;
 
         public Form1()
         {
@@ -71,10 +76,24 @@ namespace AForgeResearch
 
         private void CaptureDevice_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
-            scrCapture.Image = new Bitmap(eventArgs.Frame);
+            Bitmap frame = new Bitmap(eventArgs.Frame);
+            if (frameRotateX)
+            {
+                frame.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            }
+            if (frameRotateY)
+            {
+                frame.RotateFlip(RotateFlipType.RotateNoneFlipY);
+            }
+            if (frameGray)
+            {
+                Grayscale filter = new Grayscale(0.2125, 0.7154, 0.0721);
+                frame = filter.Apply(frame);
+            }
+            scrCapture.Image = frame;
         }
 
-        private void stopCapture()
+        private void stopCapture(bool mShow=false)
         {
             try
             {
@@ -87,7 +106,24 @@ namespace AForgeResearch
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (mShow)
+                {
+                    MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnScrShot_Click(object sender, EventArgs e)
+        {
+            
+            Image srcScreenFile = (Bitmap)scrCapture.Image.Clone();
+            SaveFileDialog saveFileDlg = new SaveFileDialog();
+            saveFileDlg.FileName = DateTime.Now.ToString("MM_dd_yyyy") + "_screenshot";
+            saveFileDlg.DefaultExt = ".png";
+            saveFileDlg.Filter = "PNG|*.png";
+            if (saveFileDlg.ShowDialog() == DialogResult.OK)
+            {
+                srcScreenFile.Save(saveFileDlg.FileName, ImageFormat.Png);
             }
         }
 
@@ -96,10 +132,29 @@ namespace AForgeResearch
             stopCapture();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             stopCapture();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
             Application.Exit();
+        }
+
+        private void btnExpand_Click(object sender, EventArgs e)
+        {
+            frameRotateX = frameRotateX ? false : true;
+        }
+
+        private void btnFlip_Click(object sender, EventArgs e)
+        {
+            frameRotateY = frameRotateY ? false : true;
+        }
+
+        private void btnGray_Click(object sender, EventArgs e)
+        {
+            frameGray = frameGray ? false : true;
         }
     }
 
