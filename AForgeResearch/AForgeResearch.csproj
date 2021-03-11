@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>camera.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
@@ -61,16 +64,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="mnForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="mnForm.Designer.cs">
+      <DependentUpon>mnForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="mnForm.resx">
+      <DependentUpon>mnForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -97,31 +100,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play.png" />
+    <Resource Include="Resources\play.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pause.png" />
+    <Resource Include="Resources\pause.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\stop.png" />
+    <Resource Include="Resources\stop.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\exit.png" />
+    <Resource Include="Resources\exit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\camera.png" />
+    <Resource Include="Resources\camera.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\screenshot.png" />
+    <Resource Include="Resources\screenshot.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\expand.png" />
+    <Resource Include="Resources\expand.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\flip.png" />
+    <Resource Include="Resources\flip.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\gray.png" />
+    <Resource Include="Resources\gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\facerecognition.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="camera.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
