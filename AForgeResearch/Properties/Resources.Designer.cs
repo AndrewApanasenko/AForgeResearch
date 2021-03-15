@@ -93,16 +93,6 @@ namespace AForgeResearch.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap facerecognition {
-            get {
-                object obj = ResourceManager.GetObject("facerecognition", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap flip {
             get {
                 object obj = ResourceManager.GetObject("flip", resourceCulture);

@@ -50,40 +50,6 @@ namespace AForgeResearch
             btnPlayPause.Image = captureDevice.IsRunning ? Properties.Resources.pause : Properties.Resources.play;
         }
 
-        // Play/Pause button.
-        private void btnPlayPause_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (devices.Count == 0)
-                {
-                    // Device list is empty.
-                    throw new Exception("No devices found!");
-                }
-                else if (lstDevice.SelectedItem == null)
-                {
-                    // Device not select in ListBox.
-                    throw new Exception("Device not select!");
-                }
-                else if (captureDevice.IsRunning)
-                {
-                    // Pause.
-                    captureDevice.Stop();
-                }
-                else
-                {
-                    // Play video and subscribe to event.
-                    captureDevice.NewFrame += CaptureDevice_NewFrame;
-                    captureDevice.Start();
-                }
-                changeBtnImg();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         // Event handler.
         private void CaptureDevice_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
@@ -130,6 +96,53 @@ namespace AForgeResearch
             }
         }
 
+        private void btnBG(ToolStripButton btn, bool flag)
+        {
+            // Set active/inactive state for ToolStripButton object by state flag.
+            btn.BackColor = flag ? SystemColors.ActiveCaption : SystemColors.Control;
+        }
+
+        // Before form close
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            stopCapture();
+        }
+
+        // Play/Pause button.
+        private void btnPlayPause_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (devices.Count == 0)
+                {
+                    // Device list is empty.
+                    throw new Exception("No devices found!");
+                }
+                else if (lstDevice.SelectedItem == null)
+                {
+                    // Device not select in ListBox.
+                    throw new Exception("Device not select!");
+                }
+                else if (captureDevice.IsRunning)
+                {
+                    // Pause.
+                    captureDevice.Stop();
+                }
+                else
+                {
+                    // Play video and subscribe to event.
+                    captureDevice.NewFrame += CaptureDevice_NewFrame;
+                    captureDevice.Start();
+                }
+                changeBtnImg();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Screenshot button
         private void btnScrShot_Click(object sender, EventArgs e)
         {
             try
@@ -158,20 +171,8 @@ namespace AForgeResearch
             }
         }
 
-        private void btnBG(ToolStripButton btn, bool flag)
-        {
-            // Set active/inactive state for ToolStripButton object by state flag.
-            btn.BackColor = flag ? SystemColors.ActiveCaption : SystemColors.Control;
-        }
-
         // Stop button
         private void btnStop_Click(object sender, EventArgs e)
-        {
-            stopCapture();
-        }
-
-        // Before form close
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             stopCapture();
         }

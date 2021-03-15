@@ -40,7 +40,6 @@
             this.btnExpand = new System.Windows.Forms.ToolStripButton();
             this.btnFlip = new System.Windows.Forms.ToolStripButton();
             this.btnGray = new System.Windows.Forms.ToolStripButton();
-            this.btnFaceDtc = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.scrCapture = new System.Windows.Forms.PictureBox();
@@ -62,7 +61,6 @@
             this.btnExpand,
             this.btnFlip,
             this.btnGray,
-            this.btnFaceDtc,
             this.toolStripSeparator3,
             this.btnExit});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -157,15 +155,6 @@
             this.btnGray.Text = "Grayscale";
             this.btnGray.Click += new System.EventHandler(this.btnGray_Click);
             // 
-            // btnFaceDtc
-            // 
-            this.btnFaceDtc.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnFaceDtc.Image = global::AForgeResearch.Properties.Resources.facerecognition;
-            this.btnFaceDtc.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFaceDtc.Name = "btnFaceDtc";
-            this.btnFaceDtc.Size = new System.Drawing.Size(23, 22);
-            this.btnFaceDtc.Text = "Face recognition";
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
@@ -231,7 +220,6 @@
         private System.Windows.Forms.ToolStripButton btnExpand;
         private System.Windows.Forms.ToolStripButton btnFlip;
         private System.Windows.Forms.ToolStripButton btnGray;
-        private System.Windows.Forms.ToolStripButton btnFaceDtc;
     }
 }
 
