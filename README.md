@@ -3,12 +3,12 @@ Just experiments with the AForge
 
 **Features:**
 
-  - Select a video device.
+  Select a video device.
 
-  - Save screenshot.
+  Save screenshot.
 
-  - Expand.
+  Expand.
 
-  - Flip.
+  Flip.
 
-  - Show in grayscale.
+  Show in grayscale.
