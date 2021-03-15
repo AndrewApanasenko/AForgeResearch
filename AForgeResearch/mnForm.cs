@@ -179,8 +179,8 @@ namespace AForgeResearch
             Application.Exit();
         }
 
-        // Expand button
-        private void btnExpand_Click(object sender, EventArgs e)
+        // Turn button
+        private void btnTurn_Click(object sender, EventArgs e)
         {
             frameRotateX = frameRotateX ? false : true;
             btnBG(sender as ToolStripButton, frameRotateX);
@@ -199,6 +199,7 @@ namespace AForgeResearch
             frameGray = frameGray ? false : true;
             btnBG(sender as ToolStripButton, frameGray);
         }
+
     }
 
 }

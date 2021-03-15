@@ -37,7 +37,7 @@
             this.btnStop = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnScrShot = new System.Windows.Forms.ToolStripButton();
-            this.btnExpand = new System.Windows.Forms.ToolStripButton();
+            this.btnTurn = new System.Windows.Forms.ToolStripButton();
             this.btnFlip = new System.Windows.Forms.ToolStripButton();
             this.btnGray = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -58,7 +58,7 @@
             this.btnStop,
             this.toolStripSeparator2,
             this.btnScrShot,
-            this.btnExpand,
+            this.btnTurn,
             this.btnFlip,
             this.btnGray,
             this.toolStripSeparator3,
@@ -125,15 +125,15 @@
             this.btnScrShot.Text = "Screenshot";
             this.btnScrShot.Click += new System.EventHandler(this.btnScrShot_Click);
             // 
-            // btnExpand
+            // btnTurn
             // 
-            this.btnExpand.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnExpand.Image = global::AForgeResearch.Properties.Resources.expand;
-            this.btnExpand.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnExpand.Name = "btnExpand";
-            this.btnExpand.Size = new System.Drawing.Size(23, 22);
-            this.btnExpand.Text = "Expand";
-            this.btnExpand.Click += new System.EventHandler(this.btnExpand_Click);
+            this.btnTurn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnTurn.Image = global::AForgeResearch.Properties.Resources.expand;
+            this.btnTurn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTurn.Name = "btnTurn";
+            this.btnTurn.Size = new System.Drawing.Size(23, 22);
+            this.btnTurn.Text = "Turn";
+            this.btnTurn.Click += new System.EventHandler(this.btnTurn_Click);
             // 
             // btnFlip
             // 
@@ -217,7 +217,7 @@
         private System.Windows.Forms.PictureBox scrCapture;
         private System.Windows.Forms.ToolStripButton btnScrShot;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton btnExpand;
+        private System.Windows.Forms.ToolStripButton btnTurn;
         private System.Windows.Forms.ToolStripButton btnFlip;
         private System.Windows.Forms.ToolStripButton btnGray;
     }
