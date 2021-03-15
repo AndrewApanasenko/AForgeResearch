@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video.DirectShow;
 using AForge.Imaging.Filters;
 
 namespace AForgeResearch
 {
+    // Andrew S. Apanasenko
+    // WhatsApp: +7 969 089 9911
     public partial class mnForm : Form
     {
         // creating global variables.
