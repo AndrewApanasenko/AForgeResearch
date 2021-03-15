@@ -7,7 +7,7 @@ Just experiments with the AForge
 
   Save screenshot.
 
-  Expand.
+  Turn.
 
   Flip.
 
